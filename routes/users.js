@@ -18,12 +18,18 @@ router.get('/login', function(req, res){
 // Register User
 router.post('/register', function(req, res){
 	var username = req.body.username;
+	var email = req.body.email;
 	var password = req.body.password;
-	var password2 = req.body.password2;
 
+
+	// Validation
 	req.checkBody('username', 'Username is required').notEmpty();
+	req.checkBody('email', 'Email is required').notEmpty();
+	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+
+	//console.log(name, email, password);
+	
 
 	var errors = req.validationErrors();
 
@@ -34,7 +40,7 @@ router.post('/register', function(req, res){
 	} else {
 		var newUser = new User({
 			username: username,
-			email:email,			
+			email:email,
 			password: password
 		});
 
