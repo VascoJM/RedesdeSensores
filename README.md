@@ -1,7 +1,7 @@
 # PROJECTO REDES E SEGURANÇA DE SENSORES
 
 $ npm install
-$ npm start      
+<br />$ npm start      
 <b>ou</b>    
 $ node app.js 
 ```
