@@ -20,6 +20,23 @@ var users = require('./routes/users');
 // Init App
 var app = express();
 
+
+
+Boxs = require('./api/models/boxListModel'),
+bodyParser = require('body-parser');
+  
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Boxdb'); 
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+var routes = require('./api/routes/boxListRoutes');
+routes(app);
+
+
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
