@@ -14,19 +14,17 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/appsensores');
 var db = mongoose.connection;
 
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Boxdb'); 
+
+var Box = require('./api/models/boxListModel');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 // Init App
 var app = express();
 
-
-
-Boxs = require('./api/models/boxListModel'),
-bodyParser = require('body-parser');
-  
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Boxdb'); 
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -96,13 +94,29 @@ app.use('/', routes);
 app.use('/users', users);
 
 var routes = require('./api/routes/boxListRoutes');
-//routes(app);
+routes(app);
 app.use('/boxs', routes);
 
 
+
+console.log('           88                                  88    88         8888888888888');             
+console.log('           88                                  88    88              888');  
+console.log('           88                                  88    88              888');
+console.log(' ,adPPYba, 88  ,adPPYba,  88       88  ,adPPYb,88    88  ,adPPYba,   888');
+console.log('a8"     "" 88 a8"     "8a 88       88 a8"    `Y88    88 a8"     "8a  888');
+console.log('8b         88 8b       d8 88       88 8b       88    88 8b       d8  888');
+console.log('"8a,   ,aa 88 "8a,   ,a8" "8a,   ,a88 "8a,   ,d88    88 "8a,   ,a8"  888');
+console.log('  "Ybbd8"  88   wYbbdP     wYbbdPY8    08bbdPY8      88   wYbbdP     888');    
 // Set Port
 app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function(){
 	console.log('Server started on port '+app.get('port'));
 });
+
+            
+                       
+  
+ 
+  
+ 
