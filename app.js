@@ -9,13 +9,14 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
-var mongoose = require('mongoose');
+var db1 = require('mongoose');
 
-mongoose.connect('mongodb://localhost/appsensores');
-var db = mongoose.connection;
+db1.connect('mongodb://localhost/appsensores');
+var db = db1.connection;
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Boxdb'); 
+//mongoose.Promise = global.Promise;
+var db2 = require('mongoose');
+db2.connect('mongodb://localhost/boxs'); 
 
 var Box = require('./api/models/boxListModel');
 
@@ -99,19 +100,19 @@ app.use('/boxs', routes);
 
 
 
-console.log('           88                                  88    88         8888888888888');             
+console.log('\n\n           88                                  88    88         8888888888888');             
 console.log('           88                                  88    88              888');  
 console.log('           88                                  88    88              888');
 console.log(' ,adPPYba, 88  ,adPPYba,  88       88  ,adPPYb,88    88  ,adPPYba,   888');
 console.log('a8"     "" 88 a8"     "8a 88       88 a8"    `Y88    88 a8"     "8a  888');
 console.log('8b         88 8b       d8 88       88 8b       88    88 8b       d8  888');
 console.log('"8a,   ,aa 88 "8a,   ,a8" "8a,   ,a88 "8a,   ,d88    88 "8a,   ,a8"  888');
-console.log('  "Ybbd8"  88   wYbbdP     wYbbdPY8    08bbdPY8      88   wYbbdP     888');    
+console.log('  "Ybbd8"  88   wYbbdP     wYbbdPY8    08bbdPY8      88   wYbbdP     888 \n');    
 // Set Port
 app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function(){
-	console.log('Server started on port '+app.get('port'));
+	console.log('\nServer started on port '+app.get('port'));
 });
 
             
