@@ -4,20 +4,13 @@ var Schema = mongoose.Schema;
 
 
 var BoxSchema = new Schema({
-  name: {
+  id: {
     type: String,
     Required: 'Kindly enter the name of the Box'
   },
-  Created_date: {
-    type: Date,
-    default: Date.now
-  },
-  status: {
-    type: [{
-      type: String,
-      enum: ['pending', 'ongoing', 'completed']
-    }],
-    default: ['pending']
+  name: {
+    type: String,
+    Required: 'Kindly enter the name of the Box'
   }
 });
 
