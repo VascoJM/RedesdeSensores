@@ -33,8 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/boxListRoutes');
-routes(app);
+
 
 
 // View Engine
@@ -95,6 +94,11 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
+
+var routes = require('./api/routes/boxListRoutes');
+//routes(app);
+app.use('/boxs', routes);
+
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
