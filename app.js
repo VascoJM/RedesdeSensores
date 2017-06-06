@@ -15,7 +15,6 @@ var mongoose = require('mongoose');
 db1.connect('mongodb://localhost/appsensores');
 var db = db1.connection;
 
-//mongoose.Promise = global.Promise;
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Tododb'); 
 

@@ -1,17 +1,17 @@
 'use strict';
 module.exports = function(app) {
-  var todoList = require('../controllers/boxListController');
+  var boxList = require('../controllers/boxListController');
 
 
   // todoList Routes
   app.route('/tasks')
-    .get(todoList.list_all_tasks)
-    .post(todoList.create_a_task);
+    .get(boxList.list_all_tasks)
+    .post(boxList.create_a_task);
 
 
   app.route('/tasks/:tasksId')
-    .get(todoList.read_a_task)
-    .put(todoList.update_a_task)
-    .delete(todoList.delete_a_task);
+    .get(boxList.read_a_task)
+    .put(boxList.update_a_task)
+    .delete(boxList.delete_a_task);
 };
 
