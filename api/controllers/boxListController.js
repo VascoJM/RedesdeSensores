@@ -35,7 +35,7 @@ exports.read_a_box = function(req, res) {
 
 
 exports.update_a_box = function(req, res) {
-  Box.findOneAndUpdate(req.params.boxId, req.body, {new: true}, function(err, task) {
+  Box.findOneAndUpdate(req.params.boxId, req.body, {new: true}, function(err, box) {
     if (err)
       res.send(err);
     res.json(box);
