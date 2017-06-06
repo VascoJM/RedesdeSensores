@@ -16,7 +16,7 @@ db1.connect('mongodb://localhost/appsensores');
 var db = db1.connection;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb'); 
+mongoose.connect('mongodb://localhost/Boxdb'); 
 
 var routes1 = require('./api/models/boxListModel');
 routes1(app);

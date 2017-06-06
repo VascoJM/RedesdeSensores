@@ -4,14 +4,14 @@ module.exports = function(app) {
 
 
   // todoList Routes
-  app.route('/tasks')
-    .get(boxList.list_all_tasks)
-    .post(boxList.create_a_task);
+  app.route('/boxs')
+    .get(boxList.list_all_boxs)
+    .post(boxList.create_a_box);
 
 
-  app.route('/tasks/:tasksId')
-    .get(boxList.read_a_task)
-    .put(boxList.update_a_task)
-    .delete(boxList.delete_a_task);
+  app.route('/boxs/:boxsId')
+    .get(boxList.read_a_box)
+    .put(boxList.update_a_box)
+    .delete(boxList.delete_a_box);
 };
 
