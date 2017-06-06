@@ -21,4 +21,4 @@ var BoxSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Tasks', TaskSchema);
+module.exports = mongoose.model('Boxs', BoxSchema);
