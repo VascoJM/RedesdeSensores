@@ -2,55 +2,55 @@
 
 
 var mongoose = require('mongoose'),
-  Box = mongoose.model('Boxs');
+  Task = mongoose.model('Tasks');
 
-exports.list_all_boxs = function(req, res) {
-  Box.find({}, function(err, box) {
+exports.list_all_tasks = function(req, res) {
+  Task.find({}, function(err, task) {
     if (err)
       res.send(err);
-    res.json(box);
+    res.json(task);
   });
 };
 
 
 
 
-exports.create_a_box = function(req, res) {
-  var new_box = new Box(req.body);
-  new_box.save(function(err, box) {
+exports.create_a_task = function(req, res) {
+  var new_task = new Task(req.body);
+  new_task.save(function(err, task) {
     if (err)
       res.send(err);
-    res.json(box);
+    res.json(task);
   });
 };
 
 
-exports.read_a_box = function(req, res) {
-  Box.findById(req.params.boxId, function(err, box) {
+exports.read_a_task = function(req, res) {
+  Task.findById(req.params.taskId, function(err, task) {
     if (err)
       res.send(err);
-    res.json(box);
+    res.json(task);
   });
 };
 
 
-exports.update_a_box = function(req, res) {
-  Box.findOneAndUpdate(req.params.boxId, req.body, {new: true}, function(err, box) {
+exports.update_a_task = function(req, res) {
+  Task.findOneAndUpdate(req.params.taskId, req.body, {new: true}, function(err, task) {
     if (err)
       res.send(err);
-    res.json(box);
+    res.json(task);
   });
 };
 
 
-exports.delete_a_box = function(req, res) {
+exports.delete_a_task = function(req, res) {
 
 
-  Box.remove({
-    _id: req.params.boxId
-  }, function(err, box) {
+  Task.remove({
+    _id: req.params.taskId
+  }, function(err, task) {
     if (err)
       res.send(err);
-    res.json({ message: 'Box successfully deleted' });
+    res.json({ message: 'Task successfully deleted' });
   });
 };

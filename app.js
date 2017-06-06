@@ -10,15 +10,17 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var db1 = require('mongoose');
+var mongoose = require('mongoose');
 
 db1.connect('mongodb://localhost/appsensores');
 var db = db1.connection;
 
 //mongoose.Promise = global.Promise;
-var db2 = require('mongoose');
-db2.connect('mongodb://localhost/boxs'); 
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Tododb'); 
 
-var Box = require('./api/models/boxListModel');
+var routes1 = require('./api/models/boxListModel');
+routes1(app);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
